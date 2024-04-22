@@ -22,7 +22,8 @@ const config = {
       colors: {
         primary: "#39CDCC",
         b900: "#213F7D",
-        n500: "#545F7D"
+        n500: "#545F7D",
+        r800: '#E30000'
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],

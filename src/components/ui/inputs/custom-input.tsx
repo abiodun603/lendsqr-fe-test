@@ -9,7 +9,7 @@ import { FieldValues, useFormContext } from 'react-hook-form';
 import { ChevronDown } from 'lucide-react';
 
 // ** Styles
-import './CustomInputField.css';
+import './style.css';
 
 type ICustomInputProps = {
   name: string;
@@ -91,8 +91,8 @@ export const CustomInputField = forwardRef(function CustomTextField(
       />
       {password &&
       <span className={label ? "p_visible absolute right-2 top-10 mr-2": "p_visible absolute right-2 top-5 mr-2"} onClick={() => setShow(!show)}>
-            {!show ? <p className='text-primary text-xs font-semibold capitalize'>Hide</p> 
-              :  <p className='text-primary text-xs font-semibold capitalize'>Show</p>
+            {!show ? <p className='text-primary text-xs font-semibold uppercase'>show</p> 
+              :  <p className='text-primary text-xs font-semibold uppercase'>hide</p>
             }
           </span>}
       {errors[name] && (
