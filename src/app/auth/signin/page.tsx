@@ -1,13 +1,8 @@
-import AuthLayout from '@/layouts/auth/auth-layout'
-import React from 'react'
+import AuthForm from './components/auth-form'
 
 const Login = () => {
   return (
-    <AuthLayout>
-        <div>
-            <p>login</p>
-        </div>
-    </AuthLayout>
+    <AuthForm />
   )
 }
 

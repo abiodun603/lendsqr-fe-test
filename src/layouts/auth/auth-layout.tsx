@@ -8,7 +8,7 @@ interface AuthLayout {
 
 const AuthLayout: FC<AuthLayout> = ({children}) => {
   return (
-    <div className="grid grid-cols-2 min-h-screen">
+    <div className="relative grid grid-cols-2 min-h-screen">
       <div className="relative bg-[#FCFCFC] h-full centralize-all-col">
         {/* logo */}
         <div className="absolute left-0 top-0 translate-y-20 translate-x-44">
@@ -21,7 +21,7 @@ const AuthLayout: FC<AuthLayout> = ({children}) => {
           />
         </div>
         {/* image */}
-        <div className="">
+        <div className="relative bg-[#FCFCFC]">
           <Image 
             src="/auth-banner.png"
             alt="auth banner"
@@ -31,7 +31,7 @@ const AuthLayout: FC<AuthLayout> = ({children}) => {
           />
         </div>
       </div>
-      <div>
+      <div className="relative bg-white flex flex-col justify-center ">
         {children}
       </div>
     </div>

@@ -19,6 +19,11 @@ const config = {
       },
     },
     extend: {
+      colors: {
+        primary: "#39CDCC",
+        b900: "#213F7D",
+        n500: "#545F7D"
+      },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
