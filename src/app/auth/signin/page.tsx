@@ -1,8 +1,13 @@
+import AuthLayout from '@/layouts/auth/auth-layout'
 import React from 'react'
 
 const Login = () => {
   return (
-    <div className='text-red-900'>Login</div>
+    <AuthLayout>
+        <div>
+            <p>login</p>
+        </div>
+    </AuthLayout>
   )
 }
 
