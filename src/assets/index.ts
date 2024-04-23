@@ -48,10 +48,16 @@ import dPayrollActive from "./icon/dashboard-payroll-active.svg"
 import dChartActive from "./icon/dashboard-chart-active.svg"
 import dSupportActive from "./icon/dashboard-support-active.svg"
 import dSettingActive from "./icon/dashboard-setting-active.svg"
+
+// ** lendsqr sidebar icons
+import home from "./sidebar/dashboard.svg"
+import dUsers from "./sidebar/users.svg"
 // ** End sidebar Icons
 
 
 export const Assets = {
+  home,
+  dUsers,
   cardWalletBg,
   logo1,
   dummyA1,

@@ -10,8 +10,8 @@ const MenuLink = ({ item }: any) => {
   return (
     <Link
       href={item.path}
-      className={`h-[40px] w-full flex items-center  pl-5   my-[5px]  hover:bg-[#F3FCFC] ${
-        pathname === item.path && 'bg-[#000000] border border-l-[3px] border-transparent border-l-primary'
+      className={`h-[40px] w-full flex items-center  pl-5   my-[5px] space-x-3 hover:bg-[#F3FCFC] ${
+        pathname === item.path && 'bg-[#F3FCFC] border border-l-[3px] border-transparent border-l-primary'
       }`}
     >
        {/* <span className={`text-lg ${pathname === item.path ? 'text-p800 ' : 'text-n900'}`}> */}

@@ -1,0 +1,1 @@
+1. under the assets folder rename to dashboard to icons

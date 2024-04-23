@@ -19,8 +19,8 @@ const menuItems = [
       {
         title: "Dashboard",
         path: "/dashboard",
-        image: Assets.dashboard,
-        imageActive: Assets.dashboardActive
+        image: Assets.home,
+        imageActive: Assets.home
       },
       // {
       //   title: "Employees",
@@ -54,7 +54,8 @@ const menuItems = [
       {
         title: "Users",
         path: "/dashboard/users",
-        image: Assets.dSupport,
+        image: Assets.dUsers,
+        imageActive: Assets.dUsers
       }
     ],
   },
@@ -69,11 +70,11 @@ const Sidebar =  ({isSidebarOpen, toggleSidebar}: SidebarProps) => {
   return (
     <div className="sticky top-10 h-[100dvh]">
        
-      <div className="flex items-center gap-[20px] mb-14 bg-black" >
+      <div className="flex items-center gap-[20px] mb-14 " >
         <Image
           src="/logo.svg"
           alt=""
-          width="100"
+          width="200"
           height="50"
           className=""
         />
@@ -86,7 +87,7 @@ const Sidebar =  ({isSidebarOpen, toggleSidebar}: SidebarProps) => {
       <ul className={`list-none`}>
         {menuItems.map((cat) => (
           <li key={cat.title}>
-            <span className="text-xs font-medium text-n500 pl-6">{cat.title}</span>
+            <span className="text-xs font-medium text-n500 pl-6 uppercase">{cat.title}</span>
             {cat.list.map((item) => (
               <MenuLink item={item} key={item.title} />
             ))}

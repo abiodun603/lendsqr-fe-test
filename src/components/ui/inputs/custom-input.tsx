@@ -91,8 +91,8 @@ export const CustomInputField = forwardRef(function CustomTextField(
       />
       {password &&
       <span className={label ? "p_visible absolute right-2 top-10 mr-2": "p_visible absolute right-2 top-5 mr-2"} onClick={() => setShow(!show)}>
-            {!show ? <p className='text-primary text-xs font-semibold uppercase'>show</p> 
-              :  <p className='text-primary text-xs font-semibold uppercase'>hide</p>
+            {!show ? <p className='text-primary text-xs font-semibold uppercase cursor-pointer'>show</p> 
+              :  <p className='text-primary text-xs font-semibold uppercase cursor-pointer'>hide</p>
             }
           </span>}
       {errors[name] && (
