@@ -21,7 +21,7 @@ const config = {
     extend: {
       colors: {
         primary: "#39CDCC",
-        b900: "#213F7D",
+        b200: "#213F7D",
         n500: "#545F7D",
         r800: '#E30000'
       },

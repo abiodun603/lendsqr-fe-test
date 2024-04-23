@@ -10,6 +10,7 @@ import { FormProvider, useForm } from "react-hook-form"
 import Button from "@/components/ui/button"
 import { CustomInputField } from "@/components/ui/inputs/custom-input"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 
 const defaultValues = {
@@ -19,16 +20,18 @@ const defaultValues = {
 
 const AuthForm = () => {
   const methods = useForm({defaultValues});
+  
+  const router = useRouter()
 
   const onSubmit = () => {
-
+    router.push("/dashboard")
   }
 
   return (
     <AuthLayout>
       <div className='px-40'>
         {/*  */}
-        <h1 className='text-b900 text-[40px] font-bold'>Welcome!</h1>
+        <h1 className='text-b200 text-[40px] font-bold'>Welcome!</h1>
         {/*  */}
         <p className='text-n500 text-[20px] font-normal leading-8'>Enter details to login.</p>
           
