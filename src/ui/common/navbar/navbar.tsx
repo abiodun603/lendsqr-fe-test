@@ -23,7 +23,7 @@ const Navbar: FC<NavbarProps> = ({isSidebarOpen, toggleSidebar}) => {
 
 
   return (
-    <div className="h-[85px] flex items-center justify-between px-5 bg-white border-b-[0.5px] border-n400 z-50">
+    <div className="h-[100px] flex items-center justify-between px-5 bg-white border-b-[0.5px] border-n400 z-50">
       {/* {
         !isSidebarOpen ?
         <div className='absolute flex items-center justify-center -left-[10px] top-8 w-5 h-5 rounded-full bg-p900 z-50'>
