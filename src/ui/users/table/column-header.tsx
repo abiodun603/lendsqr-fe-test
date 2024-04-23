@@ -1,21 +1,22 @@
-import {
-    ArrowDownIcon,
-    ArrowUpIcon,
-    CaretSortIcon,
-    EyeNoneIcon,
-  } from "@radix-ui/react-icons"
-  import { ListFilter } from "lucide-react"
   import { Column } from "@tanstack/react-table"
   
   import { cn } from "@/lib/utils"
-  import { Button } from "@/components/ui/button"
   import {
     DropdownMenu,
     DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuSeparator,
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
+
+// ** Icons
+import { ListFilter } from "lucide-react"
+
+// ** Third Party
+import { FormProvider, useForm } from "react-hook-form"
+
+// ** Components
+import { Button } from "@/components/ui/button"
+import { CustomInputField } from "@/components/ui/inputs/custom-input"
+import { DatePicker } from "@/components/ui/datepicker/DatePicker"
   
   interface DataTableColumnHeaderProps<TData, TValue>
     extends React.HTMLAttributes<HTMLDivElement> {
@@ -28,9 +29,16 @@ import {
     title,
     className,
   }: DataTableColumnHeaderProps<TData, TValue>) {
+
+    const methods = useForm();
+
     if (!column.getCanSort()) {
       return <div className={cn(className)}>{title}</div>
     }
+
+    const onSubmit = () => {
+    }
+  
   
     return (
       <div className={cn("flex items-center space-x-2", className)}>
@@ -45,20 +53,33 @@ import {
                 <ListFilter className="ml-2 h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="start">
-            <DropdownMenuItem onClick={() => column.toggleSorting(false)}>
-              <ArrowUpIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
-              Asc
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => column.toggleSorting(true)}>
-              <ArrowDownIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
-              Desc
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => column.toggleVisibility(false)}>
-              <EyeNoneIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
-              Hide
-            </DropdownMenuItem>
+          <DropdownMenuContent align="start" className="w-[270px]">
+          <FormProvider {...methods} >
+            <form className="mt-8 px-2" noValidate autoComplete='off' onSubmit={methods.handleSubmit(onSubmit)}>
+              <CustomInputField
+                label="Username"
+                type="text"
+                name='username'
+                placeholder="User"
+              />
+              <CustomInputField
+                label="Email"
+                type="email"
+                name='email'
+                placeholder="Email"
+              />
+              <DatePicker
+                name="date"  
+                label="Date"
+              />
+              <CustomInputField
+                label="Phone Number"
+                type="tel"
+                name='phone'
+                placeholder="phone"
+              />
+            </form>
+          </FormProvider>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

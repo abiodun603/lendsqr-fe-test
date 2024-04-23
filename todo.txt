@@ -1,1 +1,2 @@
 1. under the assets folder rename to dashboard to icons
+2. remove forwardref since am using react-hook-form
