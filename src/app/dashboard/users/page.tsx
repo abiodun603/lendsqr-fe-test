@@ -4,16 +4,22 @@ import React from 'react'
 import UsersCard from '@/ui/users/users-card'
 
 // ** Components
-import UserOverview from './components/UserOverview'
+import UsersOverview from './components/UsersOverview'
+import UsersTable from './components/UsersTable'
 
 
 const User = () => {
   return (
-    <div>
+    <div className='space-y-10'>
       {/* users data overview */}
       <div className='space-y-6'>
         <h2 className='text-2xl text-b200 font-medium'>Users</h2>
-        <UserOverview />
+        <UsersOverview />
+      </div>
+
+      {/* users data overview */}
+      <div className='w-full '>
+        <UsersTable />
       </div>
     </div>
   )

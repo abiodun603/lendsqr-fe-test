@@ -1,6 +1,6 @@
 import { Assets } from "@/assets";
 
-export const users_data = [
+export const USERS_DATA = [
     {
         name: "Users",
         count: "2453",
