@@ -20,6 +20,13 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination"
 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 import {
   Table,
@@ -93,7 +100,30 @@ export function DataTable<TData, TValue>({
           </TableBody>
         </Table>
       </div>
-      <div className="flex items-center justify-end space-x-2 py-4 self-end">
+      <div className="flex items-center justify-between space-x-2 py-4">
+        <div className="w-full">
+          <div className="flex items-center space-x-2">
+            <p className="text-n500 text-sm font-normal">Showing</p>
+            <Select
+              value={`${table.getState().pagination.pageSize}`}
+              onValueChange={(value) => {
+                table.setPageSize(Number(value))
+              }}
+            >
+              <SelectTrigger className="h-8 w-[70px] border-none bg-b200/10">
+                <SelectValue placeholder={table.getState().pagination.pageSize} />
+              </SelectTrigger>
+              <SelectContent side="top">
+                {[10, 20, 30, 40, 50].map((pageSize) => (
+                  <SelectItem key={pageSize} value={`${pageSize}`}>
+                    {pageSize}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <p className="text-n500 text-sm font-normal mx-2">{`out of ${table?.getRowCount()}`}</p>
+          </div>
+        </div>
         <Pagination className="justify-end">
           <PaginationContent>
             <PaginationItem>
@@ -112,6 +142,5 @@ export function DataTable<TData, TValue>({
         </Pagination>
       </div>
     </div>
- 
   )
 }

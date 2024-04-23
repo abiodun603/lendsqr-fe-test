@@ -71,5 +71,52 @@ export const USERS_DATA = [
         email: "abioduncsc@gmail.com",
         phone: "07060780922",
         status: "blacklisted"
+    },
+    {
+        id: 7,
+        username: "abiodun olatunji",
+        organization: "leadsqr",
+        email: "abioduncsc@gmail.com",
+        phone: "07060780922",
+        status: "pending"
+    },
+    {
+        id: 8,
+        username: "abiodun olatunji",
+        organization: "leadsqr",
+        email: "abioduncsc@gmail.com",
+        phone: "07060780922",
+        status: "blacklisted"
+    },
+    {
+        id: 9,
+        username: "abiodun olatunji",
+        organization: "leadsqr",
+        email: "abioduncsc@gmail.com",
+        phone: "07060780922",
+        status: "pending"
+    },
+    {
+        id: 10,
+        username: "abiodun olatunji",
+        organization: "leadsqr",
+        email: "abioduncsc@gmail.com",
+        phone: "07060780922",
+        status: "blacklisted"
+    }, {
+        id: 11,
+        username: "abiodun olatunji",
+        organization: "leadsqr",
+        email: "abioduncsc@gmail.com",
+        phone: "07060780922",
+        status: "pending"
+    },
+    {
+        id: 6,
+        username: "abiodun olatunji",
+        organization: "leadsqr",
+        email: "abioduncsc@gmail.com",
+        phone: "07060780922",
+        status: "blacklisted"
     }
 ]

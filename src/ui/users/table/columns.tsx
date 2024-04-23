@@ -34,7 +34,8 @@ export type UserDataTable = {
 
 export const columns: ColumnDef<UserDataTable>[] = [
   {
-    id: "organization",
+    id:"organization",
+    accessorKey: "organization",
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Organization" />
     ),
@@ -49,8 +50,10 @@ export const columns: ColumnDef<UserDataTable>[] = [
   },
   {
     accessorKey: "username",
-    header: "Username",
-      cell: ({ row }) => {
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Username" />
+    ),      
+    cell: ({ row }) => {
         const userData = row.original
         const username: string = userData?.username || ""
 
@@ -61,7 +64,9 @@ export const columns: ColumnDef<UserDataTable>[] = [
     },
   {
     accessorKey: "email",
-    header: "Email",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Email" />
+    ),   
     cell: ({ row }) => {
       const userData = row.original
       const email: string = userData?.email || ""
@@ -73,7 +78,9 @@ export const columns: ColumnDef<UserDataTable>[] = [
   },
   {
     accessorKey: "phone",
-    header: "Phone Number",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Phone Number" />
+    ),   
     cell: ({ row }) => {
       const phone: string = row.getValue("phone")
  
@@ -82,7 +89,9 @@ export const columns: ColumnDef<UserDataTable>[] = [
   },
   {
     accessorKey: "date",
-    header: "Date Joined",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Date Joined" />
+    ),   
     cell: ({ row }) => {
       const date: string  = row.getValue("date")
  
@@ -93,7 +102,9 @@ export const columns: ColumnDef<UserDataTable>[] = [
   },
   {
     accessorKey: "status",
-    header: "Status",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Status" />
+    ),   
     cell: ({ row }) => {
       const status :  "pending" | "active" | "inactive" | null   = row.getValue("status")
  
