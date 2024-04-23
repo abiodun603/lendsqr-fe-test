@@ -33,8 +33,14 @@ const Navbar: FC<NavbarProps> = ({isSidebarOpen, toggleSidebar}) => {
           <FaAngleRight color='#FFFFFF' onClick={toggleSidebar}/>
         </div>
       } */}
-      <div>
-        <div className="hidden lg:inline text-n900 text-2xl font-semibold capitalize">{pathname.split("/").pop()}</div>
+      <div className="flex items-center gap-[20px] w-[17.68rem]" >
+        <Image
+          src="/logo.svg"
+          alt=""
+          width="100"
+          height="10"
+          className="w-auto h-auto"
+        />
       </div>
       <div className="flex items-center gap-5">
         <div className="flex items-center gap-5">
