@@ -7,7 +7,7 @@ import AuthLayout from "@/layouts/auth/auth-layout"
 import { FormProvider, useForm } from "react-hook-form"
 
 // ** Components
-import Button from "@/components/ui/button"
+import Button from "@/components/ui/custom-button"
 import { CustomInputField } from "@/components/ui/inputs/custom-input"
 import Link from "next/link"
 import { useRouter } from "next/navigation"

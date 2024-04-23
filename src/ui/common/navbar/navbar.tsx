@@ -16,10 +16,6 @@ interface NavbarProps {
 }
 
 const Navbar: FC<NavbarProps> = ({isSidebarOpen, toggleSidebar}) => {
-  const pathname = usePathname();
-
-  // styles
-  const iconClasses = "text-xl text-default-500 pointer-events-none flex-shrink-0";
 
 
   return (
@@ -51,6 +47,7 @@ const Navbar: FC<NavbarProps> = ({isSidebarOpen, toggleSidebar}) => {
               <p className="text-y900 text-xs font-medium">Test mode</p>
             </div>
           </div>
+          
           {/* <MdOutlineChat size={20} /> */}
           <Eye color='#110D0C' size={20} />
         </div>

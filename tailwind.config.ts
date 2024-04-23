@@ -23,7 +23,10 @@ const config = {
         primary: "#39CDCC",
         b200: "#213F7D",
         n500: "#545F7D",
-        r800: '#E30000'
+        r800: '#E30000',
+        y500: "#E9B200",
+        g500: "#39CD62",
+        r500: "#E4033B",
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],

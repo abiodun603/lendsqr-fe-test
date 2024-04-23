@@ -14,7 +14,11 @@
     .btn {
       @apply py-4 px-4 bg-secondary hover:bg-opacity-70 rounded-[30px] text-white text-lg font-semibold;
     }
-  
+    
+    .table-text{
+      @apply text-n500 text-sm font-normal
+    }
+
     .head-text {
       @apply mt-4 text-6xl leading-[72px] font-bold tracking-[-1.2px] text-gray-900;
     }

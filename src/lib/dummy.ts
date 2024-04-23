@@ -1,6 +1,6 @@
 import { Assets } from "@/assets";
 
-export const USERS_DATA = [
+export const USERS_OVERVIEW = [
     {
         name: "Users",
         count: "2453",
@@ -20,5 +20,56 @@ export const USERS_DATA = [
         name: "Users with Savings",
         count: "102453",
         image: Assets.uSavings
+    }
+]
+
+export const USERS_DATA = [
+    {
+        id: 1,
+        username: "abiodun olatunji",
+        organization: "leadsqr",
+        email: "abioduncsc@gmail.com",
+        phone: "07060780922",
+        status: "pending"
+    },
+    {
+        id: 2,
+        username: "abiodun olatunji",
+        organization: "leadsqr",
+        email: "abioduncsc@gmail.com",
+        phone: "07060780922",
+        status: "inactive"
+    },
+    {
+        id: 3,
+        username: "abiodun olatunji",
+        organization: "leadsqr",
+        email: "abioduncsc@gmail.com",
+        phone: "07060780922",
+        status: "active"
+    },
+    {
+        id: 4,
+        username: "abiodun olatunji",
+        organization: "leadsqr",
+        email: "abioduncsc@gmail.com",
+        phone: "07060780922",
+        status: "blacklisted"
+    },
+    {
+        id: 5,
+        username: "abiodun olatunji",
+        organization: "leadsqr",
+        email: "abioduncsc@gmail.com",
+        phone: "07060780922",
+        status: "pending"
+    },
+    {
+        id: 6,
+        username: "abiodun olatunji",
+        organization: "leadsqr",
+        email: "abioduncsc@gmail.com",
+        phone: "07060780922",
+        status: "blacklisted"
     }
 ]

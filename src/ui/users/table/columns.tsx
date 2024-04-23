@@ -14,9 +14,11 @@ import {
 
 // ** Icon
 import { CgMoreVertical } from "react-icons/cg";
+import { Eye, UserX, UserRoundCheck  } from 'lucide-react';
 
 // ** Component
-import Button  from "@/components/ui/button";
+import { Badge } from '@/components/ui/badge';
+import { DataTableColumnHeader } from './column-header';
 
 
 // This type is used to define the shape of our data.
@@ -33,13 +35,15 @@ export type UserDataTable = {
 export const columns: ColumnDef<UserDataTable>[] = [
   {
     id: "organization",
-    header: "Organization",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Organization" />
+    ),
     cell: ({ row }) => {
       const userData = row.original
       const organization: string = userData?.organization || ""
 
       return <div>
-        <p className='text-n500 text-sm font-normal'>{organization}</p>
+        <p className="table-text capitalize">{organization}</p>
       </div>
     },
   },
@@ -51,7 +55,7 @@ export const columns: ColumnDef<UserDataTable>[] = [
         const username: string = userData?.username || ""
 
         return <div>
-          <p className='text-n500 text-sm font-normal'>{username}</p>
+          <p className='table-text capitalize'>{username}</p>
         </div>
       },
     },
@@ -63,7 +67,7 @@ export const columns: ColumnDef<UserDataTable>[] = [
       const email: string = userData?.email || ""
 
       return <div>
-        <p className='text-n500 text-sm font-normal'>{email}</p>
+        <p className='table-text'>{email}</p>
       </div>
     },
   },
@@ -73,9 +77,7 @@ export const columns: ColumnDef<UserDataTable>[] = [
     cell: ({ row }) => {
       const phone: string = row.getValue("phone")
  
-      return <div className="flex items-center space-x-4">
-        <div className="flex items-center justify-center body-three text-n900  capitalize">{phone || "---"}</div>
-      </div>
+      return <p className="table-text">{phone || "---"}</p>
     },
   },
   {
@@ -85,7 +87,7 @@ export const columns: ColumnDef<UserDataTable>[] = [
       const date: string  = row.getValue("date")
  
       return <div className="flex items-center space-x-4">
-        <div className="flex items-center justify-center body-three text-n900 capitalize">{date || "---"}</div>
+        <div className="table-text">{date || "---"}</div>
       </div>
     },
   },
@@ -93,39 +95,41 @@ export const columns: ColumnDef<UserDataTable>[] = [
     accessorKey: "status",
     header: "Status",
     cell: ({ row }) => {
-      const status : string  = row.getValue("status")
+      const status :  "pending" | "active" | "inactive" | null   = row.getValue("status")
  
-      return <div className="flex items-center space-x-4">
-        <div className="flex items-center justify-center body-three text-n900 capitalize">{status || "---"}</div>
-      </div>
+      return <Badge className='capitalize py-1 px-4' variant={status}>{status}</Badge>
     },
   },
   {
     id: "actions",
-    header: () => <div className="">
-      <Button variant="ghost" className="h-8 w-8 p-0">
-        {/* <span className="sr-only">Open menu</span>
-        <CgMoreVertical className="h-4 w-4  text-xl text-n700"  size={60}/> */}
-      </Button>
-    </div>,
     cell: ({ row }) => {
-      const employee = row.original 
-
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
+            <div className="h-8 w-8 p-0">
               <span className="sr-only">Open menu</span>
               <CgMoreVertical className="h-4 w-4 text-2xl"  size={80} />
-            </Button>
+            </div>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="bg-white">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <Link href={`/dashboard/employees/details/${employee?.id}`}>
-              <DropdownMenuItem >Edit</DropdownMenuItem>
-            </Link>
-            <DropdownMenuItem>Delete</DropdownMenuItem>
+          <DropdownMenuContent align="end" className="bg-white space-y-2 pl-6 pr-10 py-4">
+            <DropdownMenuItem>
+              <div className='flex items-center space-x-2 text-sm capitalize font-semibold'>
+                <Eye className='text-n500 text-sm'/>
+                <h3 className=''>View Details</h3>
+              </div>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <div className='flex items-center space-x-2 text-sm capitalize font-semibold'>
+                <UserX className='text-n500 text-sm'/>
+                <h3 className=''>Blacklist User</h3>
+              </div>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <div className='flex items-center space-x-2 text-sm capitalize font-semibold'>
+                <UserRoundCheck className='text-n500 text-sm'/>
+                <h3 className=''>Activate User</h3>
+              </div>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       )
