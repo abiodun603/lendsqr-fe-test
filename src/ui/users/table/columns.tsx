@@ -32,6 +32,7 @@ export type UserDataTable = {
   status?:string;
 }
 
+
 export const columns: ColumnDef<UserDataTable>[] = [
   {
     id:"organization",
@@ -124,10 +125,12 @@ export const columns: ColumnDef<UserDataTable>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="bg-white space-y-2 pl-6 pr-10 py-4">
             <DropdownMenuItem>
-              <div className='flex items-center space-x-2 text-sm capitalize font-semibold'>
-                <Eye className='text-n500 text-sm'/>
-                <h3 className=''>View Details</h3>
-              </div>
+              <Link href="/dashboard/users/121212" >
+                <div className='flex items-center space-x-2 '>
+                  <Eye className='text-n500 text-sm'/>
+                  <h3 className='text-sm capitalize font-semibold'>View Details</h3>
+                </div>
+              </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
               <div className='flex items-center space-x-2 text-sm capitalize font-semibold'>

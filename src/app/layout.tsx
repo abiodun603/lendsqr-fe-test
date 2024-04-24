@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google"
-import "../styles/globals.css";
 
+// ** styles
+import "../styles/globals.css";
+import '@smastrom/react-rating/style.css'
+
+// ** Libs
 import { cn } from "@/lib/utils"
 
 const fontSans = FontSans({
