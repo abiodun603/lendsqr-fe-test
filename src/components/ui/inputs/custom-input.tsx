@@ -3,7 +3,8 @@
 import  { ForwardedRef, forwardRef, useEffect, useState } from 'react';
 
 // ** Third Party
-import { FieldValues, useFormContext } from 'react-hook-form';
+import { Controller, FieldValues, useFormContext } from 'react-hook-form';
+import Select, { ActionMeta, SingleValue } from 'react-select';
 
 // ** Icons
 import { ChevronDown } from 'lucide-react';
@@ -183,3 +184,85 @@ export const CustomSelectField = forwardRef(
     )
   }
 )
+
+
+interface Option {
+  value: string;
+  label: string;
+}
+
+interface CustomReactSelectFieldProps {
+  name: string;
+  control: any; 
+  defaultValue?: any;
+  options: Option[];
+  label: string;
+}
+
+export const CustomReactSelectField: React.FC<CustomReactSelectFieldProps> = ({ name, control, defaultValue, options, label }) => (
+  <div className='form-field'>
+    <label htmlFor={name} className="mb-4">{label}</label>
+    <Controller
+      name={name}
+      control={control}
+      defaultValue={defaultValue}
+      render={({ field }) => (
+        <Select
+          {...field}
+          options={options}
+          onChange={(value) => field.onChange(value)}
+          styles={{
+            control: (provided) => ({
+              ...provided,
+              height: '40px',
+              minHeight: "40px", 
+              border: "2px solid #545f7d26",
+              '&:hover': {
+                outline: 'none',
+                border: '2px solid #545f7d26'
+              },
+            }),
+            input: (provided, state) => ({
+              ...provided,
+              marginBofttom: '0px',
+            }),
+        
+            option: (provided, state) => ({
+              ...provided,
+              backgroundColor: state.isSelected ? '#39CDCC' : 'white',              
+              '&:hover': {
+                backgroundColor: '#dbffff',
+              },
+            }),
+            indicatorSeparator: () => ({
+              display: 'none', 
+            }),
+            // placeholder: (provided, state) => ({
+            //   ...provided,
+            //   height: "45px",
+            //   margin: "0",
+            //   padding:"0"
+            // }),
+            indicatorsContainer:  (provided, state) => ({
+              ...provided,
+              height: "40px",
+              margin: "0",
+              padding:"0"
+            }),
+            valueContainer: (provided, state) => ({
+              ...provided,
+              height: '10px',
+              padding: '0 14px'
+            }),
+            singleValue: (provided) => ({
+              ...provided,
+              color: 'black !important'
+            }),
+          }}
+        />
+      )}
+    />
+  </div>
+);
+
+
