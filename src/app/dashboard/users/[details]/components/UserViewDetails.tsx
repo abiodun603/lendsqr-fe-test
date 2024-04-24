@@ -27,11 +27,6 @@ const UserViewDetails = () => {
           <Button variant={"outline"} className='text-sm text-primary font-semibold uppercase border-primary'>activate user</Button>
         </div>
       </div>
-      
-
-
-
-
 
       {/* user details tab panel */}
       <div className='mt-10'>
