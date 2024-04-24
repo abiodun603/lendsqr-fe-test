@@ -9,6 +9,8 @@ import { Rating as ReactRating } from '@smastrom/react-rating'
 import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Separator } from '@/components/ui/separator'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import TabsContentOne from './TabsContentOne'
 
 interface UserViewDetailsProps {
 
@@ -18,7 +20,7 @@ const UserViewDetails = () => {
   const [rating, setRating] = useState(0)
 
   return (
-    <div>
+    <Tabs defaultValue="details" className="w-full">      
       {/* user header action */}
       <div className='w-full flex items-center justify-between'>
         <h3 className='text-b200 text-2xl font-medium'>User Details</h3>
@@ -29,8 +31,8 @@ const UserViewDetails = () => {
       </div>
 
       {/* user details tab panel */}
-      <div className='mt-10'>
-        <div className='w-full h-[210px] border border-[#213f7d0f] drop-shadow-sm rounded-[4px] bg-white p-6'>
+      <div className='mt-10 w-full'>
+        <div className='relative w-full h-[210px] border border-[#213f7d0f] drop-shadow-sm rounded-[4px] bg-white p-6'>
           {/*  */}
           <div className='p-6'>
             <div className="flex h-7 items-center space-x-4 text-sm">
@@ -60,9 +62,30 @@ const UserViewDetails = () => {
             </div>
           </div>
           
+          {/*tab header */}
+          <div className='absolute  bottom-0'>
+            <TabsList className="grid w-full grid-cols-6">
+              <TabsTrigger value="details">General Details</TabsTrigger>
+              <TabsTrigger value="documents">Documents</TabsTrigger>
+              <TabsTrigger value="bank">Bank Details</TabsTrigger>
+              <TabsTrigger value="loans">Loans</TabsTrigger>
+              <TabsTrigger value="savings">Savings</TabsTrigger>
+              <TabsTrigger value="apps">App and System</TabsTrigger>
+            </TabsList>
+          </div>
         </div>
       </div>
-    </div>
+      <div className='border border-[#213f7d0f] drop-shadow-sm rounded-[4px] bg-white p-6 w-full h-72 mt-10'>
+        <TabsContent value="details">
+          <TabsContentOne/>
+        </TabsContent>
+        <TabsContent value="documents">USER DOCUMENTS HERE.</TabsContent>
+        <TabsContent value="bank">BANK DETAILS HERE.</TabsContent>
+        <TabsContent value="loans">LOAN VIEW HERE.</TabsContent>
+        <TabsContent value="savings">SAVINGS DETAILS HERE</TabsContent>
+        <TabsContent value="apps">APP AND SYSTEM DETAILS HERE</TabsContent>
+      </div>
+    </Tabs>
   )
 }
 
