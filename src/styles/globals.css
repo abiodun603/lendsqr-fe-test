@@ -88,4 +88,12 @@
       @apply text-xl leading-[30px] text-gray-600;
     }
 
+    /* User Details */
+    .user-title {
+      @apply text-xs text-n500 font-normal uppercase
+    }
+
+    .user-detail {
+      @apply text-[16px] text-n500 font-medium
+    }
   }

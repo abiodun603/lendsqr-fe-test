@@ -75,7 +75,7 @@ const UserViewDetails = () => {
           </div>
         </div>
       </div>
-      <div className='border border-[#213f7d0f] drop-shadow-sm rounded-[4px] bg-white p-6 w-full h-72 mt-10'>
+      <div className='border border-[#213f7d0f] drop-shadow-sm rounded-[4px] bg-white px-6 pt-6 pb-10 w-full h-full mt-10'>
         <TabsContent value="details">
           <TabsContentOne/>
         </TabsContent>
