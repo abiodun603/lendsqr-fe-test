@@ -26,11 +26,36 @@ export const USERS_OVERVIEW = [
 export const USERS_DATA = [
     {
         id: 1,
+        firstname: "Grace",
+        lastNAME: "Effiom",
+        email: "grace@gmail.com",
+        gender: "male",
+        bvn: "07060780922",
+        chidren: "2",
+        type_of_residence: "Parent's Apartment",
         username: "abiodun olatunji",
         organization: "leadsqr",
-        email: "abioduncsc@gmail.com",
         phone: "07060780922",
-        status: "pending"
+        status: "pending",
+        education: {
+            education_level: "B.Sc",
+            employment_status: "employed",
+            sector: "fintech",
+            office_email: "grace@lendsqr.com",
+            salary: "2000000",
+            loan: "40000"
+        },
+        socials: {
+            twitter: "@grace_effiom",
+            facebook: "grace effiom",
+            instragram: "@grace_effiom"
+        },
+        guarantor: {
+            fullname: "debby ogana",
+            phone: "07060780922",
+            email: "debby@gmail.com",
+            relationship: "single"
+        }
     },
     {
         id: 2,

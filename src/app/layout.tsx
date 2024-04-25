@@ -8,6 +8,10 @@ import '@smastrom/react-rating/style.css'
 // ** Libs
 import { cn } from "@/lib/utils"
 
+// ** Store
+import Providers from "./providers";
+import store from "@/store";
+
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -24,14 +28,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body   
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}>
-          {children}
-      </body>
-    </html>
+    <Providers>
+      <html lang="en">
+        <body   
+          className={cn(
+            "min-h-screen bg-background font-sans antialiased",
+            fontSans.variable
+          )}>
+            {children}
+
+        </body>
+      </html>
+    </Providers>
   );
 }
