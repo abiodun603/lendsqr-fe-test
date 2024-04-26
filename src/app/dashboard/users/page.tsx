@@ -1,8 +1,5 @@
 import React from 'react'
 
-// ** UI
-import UsersCard from '@/ui/users/users-card'
-
 // ** Components
 import UsersOverview from './components/UsersOverview'
 import UsersTable from './components/UsersTable'

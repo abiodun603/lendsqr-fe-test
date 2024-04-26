@@ -1,4 +1,4 @@
-type User = {
+export type User = {
     id: number;
     firstname: string;
     lastNAME: string;
@@ -31,3 +31,7 @@ type User = {
         relationship: 'spouse' | 'parent' | 'sibling' | 'friend';
     };
 };
+
+export interface Users {
+    users: User[]
+}

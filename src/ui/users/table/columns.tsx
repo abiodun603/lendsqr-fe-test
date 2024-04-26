@@ -20,50 +20,45 @@ import { Eye, UserX, UserRoundCheck  } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { DataTableColumnHeader } from './column-header';
 
+// ** Types
+import { User, Users } from '@/types';
+
 
 // This type is used to define the shape of our data.
-export type UserDataTable = {
-  id?: number;
-  organization: string
-  username: string
-  email: string
-  phone?:string;
-  date?:string;
-  status?:string;
-}
 
 
-export const columns: ColumnDef<UserDataTable>[] = [
-  {
-    id:"organization",
-    accessorKey: "organization",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Organization" />
-    ),
-    cell: ({ row }) => {
-      const userData = row.original
-      const organization: string = userData?.organization || ""
 
-      return <div>
-        <p className="table-text capitalize">{organization}</p>
-      </div>
-    },
-  },
-  {
-    accessorKey: "username",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Username" />
-    ),      
-    cell: ({ row }) => {
-        const userData = row.original
-        const username: string = userData?.username || ""
+export const columns: ColumnDef<User>[] = [
+  // {
+  //   id:"organization",
+  //   accessorKey: "organization",
+  //   header: ({ column }) => (
+  //     <DataTableColumnHeader column={column} title="Organization" />
+  //   ),
+  //   cell: ({ row }) => {
+  //     const userData = row.original
+  //     const organization: string = userData?.organization || ""
 
-        return <div>
-          <p className='table-text capitalize'>{username}</p>
-        </div>
-      },
-    },
-  {
+  //     return <div>
+  //       <p className="table-text capitalize">{organization}</p>
+  //     </div>
+  //   },
+  // },
+  // {
+  //   accessorKey: "username",
+  //   header: ({ column }) => (
+  //     <DataTableColumnHeader column={column} title="Username" />
+  //   ),      
+  //   cell: ({ row }) => {
+  //       const userData = row.original
+  //       const username: string = userData?.username || ""
+
+  //       return <div>
+  //         <p className='table-text capitalize'>{username}</p>
+  //       </div>
+  //     },
+  //   },
+   {
     accessorKey: "email",
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Email" />
@@ -71,7 +66,6 @@ export const columns: ColumnDef<UserDataTable>[] = [
     cell: ({ row }) => {
       const userData = row.original
       const email: string = userData?.email || ""
-
       return <div>
         <p className='table-text'>{email}</p>
       </div>

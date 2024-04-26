@@ -1,14 +1,16 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import { baseQuery } from '@/config/auth-config'
 
-//types
+// ** Types
+import { User, Users } from '@/types'
+
 
 export const usersApi = createApi({
   baseQuery,
   endpoints: (builder) => ({
-    getUsers: builder.query<User, void>({
+    getUsers: builder.query<Users, void>({
         query: () => ({
-          url: `/6df7b905-5d27-4aec-877e-733a4efab778`,
+          url: `/a4cb974c-709e-43a2-856a-6d395af22807`,
           method: 'GET',
         }),
       }),
