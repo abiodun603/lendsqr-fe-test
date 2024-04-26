@@ -22,6 +22,7 @@ import { DataTableColumnHeader } from './column-header';
 
 // ** Types
 import { User, Users } from '@/types';
+import formatDate from '@/helpers/formatDate';
 
 
 // This type is used to define the shape of our data.
@@ -29,35 +30,35 @@ import { User, Users } from '@/types';
 
 
 export const columns: ColumnDef<User>[] = [
-  // {
-  //   id:"organization",
-  //   accessorKey: "organization",
-  //   header: ({ column }) => (
-  //     <DataTableColumnHeader column={column} title="Organization" />
-  //   ),
-  //   cell: ({ row }) => {
-  //     const userData = row.original
-  //     const organization: string = userData?.organization || ""
+  {
+    id:"organization",
+    accessorKey: "organization",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Organization" />
+    ),
+    cell: ({ row }) => {
+      const userData = row.original
+      const organization: string = userData?.organization || ""
 
-  //     return <div>
-  //       <p className="table-text capitalize">{organization}</p>
-  //     </div>
-  //   },
-  // },
-  // {
-  //   accessorKey: "username",
-  //   header: ({ column }) => (
-  //     <DataTableColumnHeader column={column} title="Username" />
-  //   ),      
-  //   cell: ({ row }) => {
-  //       const userData = row.original
-  //       const username: string = userData?.username || ""
+      return <div>
+        <p className="table-text capitalize">{organization}</p>
+      </div>
+    },
+  },
+  {
+    accessorKey: "username",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Username" />
+    ),      
+    cell: ({ row }) => {
+        const userData = row.original
+        const username: string = userData?.username || ""
 
-  //       return <div>
-  //         <p className='table-text capitalize'>{username}</p>
-  //       </div>
-  //     },
-  //   },
+        return <div>
+          <p className='table-text capitalize'>{username}</p>
+        </div>
+      },
+    },
    {
     accessorKey: "email",
     header: ({ column }) => (
@@ -79,7 +80,7 @@ export const columns: ColumnDef<User>[] = [
     cell: ({ row }) => {
       const phone: string = row.getValue("phone")
  
-      return <p className="table-text">{phone || "---"}</p>
+      return <p className="table-text">{phone.replace(/[()-]/g, '') || "---"}</p>
     },
   },
   {
@@ -91,7 +92,7 @@ export const columns: ColumnDef<User>[] = [
       const date: string  = row.getValue("date")
  
       return <div className="flex items-center space-x-4">
-        <div className="table-text">{date || "---"}</div>
+        <div className="table-text">{formatDate(date) || "---"}</div>
       </div>
     },
   },
@@ -109,6 +110,7 @@ export const columns: ColumnDef<User>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
+      const id: number  = row.original?.id
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -119,7 +121,7 @@ export const columns: ColumnDef<User>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="bg-white space-y-2 pl-6 pr-10 py-4">
             <DropdownMenuItem>
-              <Link href="/dashboard/users/121212" >
+              <Link href={`/dashboard/users/${id}`} >
                 <div className='flex items-center space-x-2 '>
                   <Eye className='text-n500 text-sm'/>
                   <h3 className='text-sm capitalize font-semibold'>View Details</h3>

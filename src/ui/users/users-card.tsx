@@ -7,7 +7,7 @@ import { formatValue } from '@/helpers/formatValueComma'
 interface UsersCardInterface {
     image: string,
     name: string,
-    count: string
+    count: number
 }
 
 const UsersCard: FC<UsersCardInterface> = ({image, name, count}) => {

@@ -8,14 +8,13 @@ import { useGetUsersQuery } from '@/store/features/users/UsersService'
 import UsersCard from '@/ui/users/users-card'
 
 const UsersOverview = () => {
-  const {data, isLoading} = useGetUsersQuery()
-  console.log(data)
+  const {data:getUsersData, isLoading} = useGetUsersQuery()
 
   return (
     <div className='flex flex-row gap-x-10'>
       {
         USERS_OVERVIEW.map((data) => (
-          <UsersCard  key={data.name} name={data.name} count={data.count} image={data.image} />
+          <UsersCard  key={data.name} name={data.name} count={getUsersData?.length || 0} image={data.image} />
         ))
       }
     </div>
