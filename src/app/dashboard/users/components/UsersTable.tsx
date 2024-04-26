@@ -1,8 +1,9 @@
 "use client"
 
-// ** UI
-import { USERS_DATA } from "@/lib/dummy"
+// ** Store
 import { useGetUsersQuery } from "@/store/features/users/UsersService"
+
+// ** UI
 import { columns } from "@/ui/users/table/columns"
 import { DataTable } from "@/ui/users/table/data-table"
 

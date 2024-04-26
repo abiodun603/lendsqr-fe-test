@@ -1,6 +1,15 @@
-import React from 'react'
+'use client'
 
-const TabsContentOne = () => {
+import { FC } from 'react'
+
+// ** Types
+import { User } from '@/types'
+
+interface TabsContentOneProps {
+  user: User | undefined
+}
+
+const TabsContentOne: FC<TabsContentOneProps> = ({ user }) => {
   return (
     <div>
       {/*  */}
@@ -9,35 +18,35 @@ const TabsContentOne = () => {
         <div className="w-full grid grid-cols-5 gap-x-4 gap-y-6 mt-6">
           <div className="space-y-1">
             <p className='user-title'>full name</p>
-            <h2 className='user-detail capitalize'>Grace Effiom</h2>
+            <h2 className='user-detail capitalize'>{user?.firstname} {user?.lastname}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>Phone Number</p>
-            <h2 className='user-detail capitalize'>07060780922</h2>
+            <h2 className='user-detail capitalize'>{user?.phone}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>Email Address</p>
-            <h2 className='user-detail capitalize'>grace@gmail.com</h2>
+            <h2 className='user-detail capitalize'>{user?.email}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>gender</p>
-            <h2 className='user-detail capitalize'>Male</h2>
+            <h2 className='user-detail capitalize'>{user?.gender}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>bvn</p>
-            <h2 className='user-detail capitalize'>07060780922</h2>
+            <h2 className='user-detail capitalize'>{user?.bvn}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>Marital status</p>
-            <h2 className='user-detail capitalize'>Single</h2>
+            <h2 className='user-detail capitalize'>{user?.status}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>Children</p>
-            <h2 className='user-detail capitalize'>None</h2>
+            <h2 className='user-detail capitalize'>{user?.children}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>type of residence</p>
-            <h2 className='user-detail capitalize'>Parent’s Apartment</h2>
+            <h2 className='user-detail capitalize'>{user?.type_of_residence}</h2>
           </div>
         </div>
       </div>
@@ -49,31 +58,31 @@ const TabsContentOne = () => {
         <div className="w-full grid grid-cols-4 gap-x-4 gap-y-6 mt-6">
           <div className="space-y-1">
             <p className='user-title'>level of education</p>
-            <h2 className='user-detail capitalize'>Grace Effiom</h2>
+            <h2 className='user-detail capitalize'>{user?.education?.education_level}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>employment status</p>
-            <h2 className='user-detail capitalize'>07060780922</h2>
+            <h2 className='user-detail capitalize'>{user?.education?.employment_status}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>sector of employment</p>
-            <h2 className='user-detail capitalize'>grace@gmail.com</h2>
+            <h2 className='user-detail capitalize'>{user?.education.sector}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>Duration of employment</p>
-            <h2 className='user-detail capitalize'>Male</h2>
+            <h2 className='user-detail capitalize'>{user?.education?.employment_status}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>office email</p>
-            <h2 className='user-detail capitalize'>07060780922</h2>
+            <h2 className='user-detail '>{user?.education?.office_email}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>Monthly income</p>
-            <h2 className='user-detail capitalize'>Single</h2>
+            <h2 className='user-detail capitalize'>{user?.education?.salary}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>loan repayment</p>
-            <h2 className='user-detail capitalize'>None</h2>
+            <h2 className='user-detail capitalize'>{user?.education?.loan}</h2>
           </div>
         </div>
       </div>
@@ -84,15 +93,15 @@ const TabsContentOne = () => {
         <div className="w-fit grid grid-cols-3 gap-x-4 gap-y-6 mt-6">
           <div className="space-y-1">
             <p className='user-title'>Twitter</p>
-            <h2 className='user-detail capitalize'>Grace Effiom</h2>
+            <h2 className='user-detail'>{user?.socials?.twitter}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>Facebook</p>
-            <h2 className='user-detail capitalize'>07060780922</h2>
+            <h2 className='user-detail'>{user?.socials?.facebook}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>Instagram</p>
-            <h2 className='user-detail capitalize'>grace@gmail.com</h2>
+            <h2 className='user-detail'>{user?.socials?.instagram}</h2>
           </div>
         </div>
       </div>
@@ -103,19 +112,19 @@ const TabsContentOne = () => {
         <div className="w-fit grid grid-cols-4 gap-x-4 gap-y-6 mt-6">
           <div className="space-y-1">
             <p className='user-title'>full Name</p>
-            <h2 className='user-detail capitalize'>Grace Effiom</h2>
+            <h2 className='user-detail capitalize'>{user?.guarantor?.fullname}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>Phone Number</p>
-            <h2 className='user-detail capitalize'>07060780922</h2>
+            <h2 className='user-detail capitalize'>{user?.guarantor?.phone.replace(/[()-]/g, '')}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>Email Address</p>
-            <h2 className='user-detail capitalize'>grace@gmail.com</h2>
+            <h2 className='user-detail'>{user?.guarantor.email}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>Relationship</p>
-            <h2 className='user-detail capitalize'>grace@gmail.com</h2>
+            <h2 className='user-detail capitalize'>{user?.guarantor?.relationship}</h2>
           </div>
         </div>
       </div>

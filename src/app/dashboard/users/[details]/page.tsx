@@ -7,7 +7,9 @@ import { MoveLeft } from 'lucide-react';
 // ** Components
 import UserViewDetails from './components/UserViewDetails';
 
-const UserDetails = () => {
+const UserDetails = ({ params }: { params: { details: string } }) => {
+  const userId:number = parseInt(params.details, 10)
+
   return (
     <div>
       {/* to back */}
@@ -17,10 +19,10 @@ const UserDetails = () => {
           <p className='text-n500 text-[16px] font-normal'>Back to Users</p>
         </div>
       </Link>
-
+      <p>{userId}</p>
       {/* user details */}
       <div className='mt-10'>
-        <UserViewDetails />
+        <UserViewDetails user_id={userId} />
       </div>
     </div>
   )

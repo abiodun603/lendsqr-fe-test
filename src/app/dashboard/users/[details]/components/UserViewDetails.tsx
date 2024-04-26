@@ -1,6 +1,9 @@
 'use client'
 
-import  { useState } from 'react'
+import  { FC, useEffect, useState } from 'react'
+
+// ** Store
+import { useGetUsersQuery } from "@/store/features/users/UsersService"
 
 // ** Third Party
 import { Rating as ReactRating } from '@smastrom/react-rating'
@@ -11,13 +14,37 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import TabsContentOne from './TabsContentOne'
+import { User } from '@/types'
+
+
 
 interface UserViewDetailsProps {
-
+  user_id: number;
 }
 
-const UserViewDetails = () => {
+const UserViewDetails: FC<UserViewDetailsProps> = ({ user_id }) => {
   const [rating, setRating] = useState(0)
+  const [user, setUser] = useState<User | undefined>();
+
+  const {data:getAllUsers, isLoading} = useGetUsersQuery()
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  useEffect(() => {
+    if (getAllUsers) {
+      const filteredUser = getAllUsers.find(user => user.id === user_id);
+      if (filteredUser) {
+        setUser(filteredUser);
+      } else {
+        console.log(`User with ID ${user_id} not found.`);
+      }
+    }
+  }, [getAllUsers, user_id]);
+
+
+  console.log(user, user_id)
 
   return (
     <Tabs defaultValue="details" className="w-full">      
@@ -77,7 +104,7 @@ const UserViewDetails = () => {
       </div>
       <div className='border border-[#213f7d0f] drop-shadow-sm rounded-[4px] bg-white px-6 pt-6 pb-10 w-full h-full mt-10'>
         <TabsContent value="details">
-          <TabsContentOne/>
+          <TabsContentOne user={user}/>
         </TabsContent>
         <TabsContent value="documents">USER DOCUMENTS HERE.</TabsContent>
         <TabsContent value="bank">BANK DETAILS HERE.</TabsContent>
