@@ -7,7 +7,7 @@ import { columns } from "@/ui/users/table/columns"
 import { DataTable } from "@/ui/users/table/data-table"
 
 const UsersTable = () => {
-  const {data:getAllUsers, isLoading} = useGetUsersQuery()
+  const {data:getAllUsers} = useGetUsersQuery()
 
   return (
     <div>

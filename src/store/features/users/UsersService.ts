@@ -8,7 +8,7 @@ import { User, Users } from '@/types'
 export const usersApi = createApi({
   baseQuery,
   endpoints: (builder) => ({
-    getUsers: builder.query<Users, void>({
+    getUsers: builder.query<User[], void>({
         query: () => ({
           url: `/a4cb974c-709e-43a2-856a-6d395af22807`,
           method: 'GET',
