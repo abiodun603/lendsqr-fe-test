@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
 
 // ** Layout
 import AuthLayout from "@/layouts/auth/auth-layout"
@@ -48,11 +49,20 @@ const AuthForm = () => {
 
   return (
     <AuthLayout>
-      <div className='px-40'>
+      <div className='px-4 md:px-[20%]'>
+        <div className="absolute left-0 top-0 translate-y-10 translate-x-10">
+          <Image
+            src="/logo.svg"
+            alt="auth banner"
+            width={130}
+            height={200}
+            className="h-auto mx-auto mb-6"
+          />
+        </div>
         {/*  */}
-        <h1 className='text-b200 text-[40px] font-bold'>Welcome!</h1>
+        <h1 className='text-center md:text-start text-b200 text-[40px] font-bold'>Welcome!</h1>
         {/*  */}
-        <p className='text-n500 text-[20px] font-normal leading-8'>Enter details to login.</p>
+        <p className='text-center md:text-start text-n500 text-[20px] font-normal leading-8'>Enter details to login.</p>
           
         <FormProvider {...methods} >
           <form className="mt-16" noValidate autoComplete='off' onSubmit={methods.handleSubmit(onSubmit)}>

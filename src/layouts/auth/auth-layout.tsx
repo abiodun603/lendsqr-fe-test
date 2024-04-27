@@ -8,8 +8,8 @@ interface AuthLayout {
 
 const AuthLayout: FC<AuthLayout> = ({children}) => {
   return (
-    <div className="relative grid grid-cols-2 min-h-screen">
-      <div className="relative bg-[#FCFCFC] h-full centralize-all-col">
+    <div className="relative grid grid-cols-1 md:grid-cols-2 min-h-screen">
+      <div className="hidden md:centralize-all-col relative bg-[#FCFCFC] h-full ">
         {/* logo */}
         <div className="absolute left-0 top-0 translate-y-20 translate-x-44">
           <Image 
