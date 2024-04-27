@@ -69,8 +69,7 @@ const UserViewDetails: FC<UserViewDetailsProps> = ({ user_id }) => {
       {/* user details tab panel */}
       <div className='mt-10 w-full'>
         <div className='relative w-full h-[210px] border border-[#213f7d0f] drop-shadow-sm rounded-[4px] bg-white p-6'>
-          {/*  */}
-          <div className='p-6'>
+          {/* <div className='p-6'>
             <div className="flex h-7 items-center space-x-4 text-sm">
               <div className='flex items-center space-x-3'>
                 <div>
@@ -79,7 +78,6 @@ const UserViewDetails: FC<UserViewDetailsProps> = ({ user_id }) => {
                     <AvatarFallback><UserRound className=' text-n500'size={28}/></AvatarFallback>
                   </Avatar>
                 </div>
-                {/* name */}
                 <div className='space-y-1 flex flex-col'>
                   <h2 className='text-[22px] text-n500 font-medium'>{`${user?.firstname} ${user?.lastname}`}</h2>
                   <p className='text-sm text-n500 font-normal'>{user?.id}</p>
@@ -96,11 +94,11 @@ const UserViewDetails: FC<UserViewDetailsProps> = ({ user_id }) => {
                 <p className='text-xs text-b200 font-normal'>{`${user?.bank?.account_number}/${user?.bank?.bank_name}`}</p>
               </div>
             </div>
-          </div>
+          </div> */}
           
           {/*tab header */}
           <div className='absolute  bottom-0'>
-            <TabsList className="grid w-full grid-cols-6">
+            <TabsList className="grid w-full grid-cols-6 overflow-auto">
               <TabsTrigger value="details">General Details</TabsTrigger>
               <TabsTrigger value="documents">Documents</TabsTrigger>
               <TabsTrigger value="bank">Bank Details</TabsTrigger>

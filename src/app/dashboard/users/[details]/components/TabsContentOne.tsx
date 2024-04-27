@@ -16,7 +16,7 @@ const TabsContentOne: FC<TabsContentOneProps> = ({ user }) => {
       {/*  */}
       <div className=''>
         <h2 className='text-[16px] text-b200 font-medium'>Personal Information</h2>
-        <div className="w-full grid grid-cols-5 gap-x-4 gap-y-6 mt-6">
+        <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-col-5 gap-x-4 gap-y-6 mt-6">
           <div className="space-y-1">
             <p className='user-title'>full name</p>
             <h2 className='user-detail capitalize'>{`${user?.firstname} ${user?.lastname}`}</h2>
@@ -25,7 +25,7 @@ const TabsContentOne: FC<TabsContentOneProps> = ({ user }) => {
             <p className='user-title'>Phone Number</p>
             <h2 className='user-detail capitalize'>{user?.phone}</h2>
           </div>
-          <div className="space-y-1">
+          <div className="space-y-1 col-span-2 md:col-span-2 lg:col-span-1">
             <p className='user-title'>Email Address</p>
             <h2 className='user-detail capitalize'>{user?.email}</h2>
           </div>
@@ -56,7 +56,7 @@ const TabsContentOne: FC<TabsContentOneProps> = ({ user }) => {
       {/*  */}
       <div className='mt-8'>
         <h2 className='text-[16px] text-b200 font-medium'>Education and Employment</h2>
-        <div className="w-full grid grid-cols-4 gap-x-4 gap-y-6 mt-6">
+        <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-6 mt-6">
           <div className="space-y-1">
             <p className='user-title'>level of education</p>
             <h2 className='user-detail capitalize'>{user?.education?.education_level}</h2>
@@ -73,11 +73,11 @@ const TabsContentOne: FC<TabsContentOneProps> = ({ user }) => {
             <p className='user-title'>Duration of employment</p>
             <h2 className='user-detail capitalize'>{`${user?.education?.duration_of_employment} years`}</h2>
           </div>
-          <div className="space-y-1">
+          <div className="space-y-1 col-span-2 md:col-span-1">
             <p className='user-title'>office email</p>
             <h2 className='user-detail '>{user?.education?.office_email}</h2>
           </div>
-          <div className="space-y-1">
+          <div className="space-y-1 col-span-2 md:col-span-2">
             <p className='user-title'>Monthly income</p>
             <h2 className='user-detail capitalize'>{user?.education && `₦${formatNumber(user?.education.salary_from, 2)} - ₦${formatNumber(user?.education.salary_to, 2)}`}</h2>
           </div>
@@ -110,7 +110,7 @@ const TabsContentOne: FC<TabsContentOneProps> = ({ user }) => {
       {/* Social Details */}
       <div className='mt-8'>
         <h2 className='text-[16px] text-b200 font-medium'>Guarantor</h2>
-        <div className="w-fit grid grid-cols-4 gap-x-4 gap-y-6 mt-6">
+        <div className="w-fit grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6 mt-6">
           <div className="space-y-1">
             <p className='user-title'>full Name</p>
             <h2 className='user-detail capitalize'>{user?.guarantor?.fullname}</h2>
@@ -119,8 +119,8 @@ const TabsContentOne: FC<TabsContentOneProps> = ({ user }) => {
             <p className='user-title'>Phone Number</p>
             <h2 className='user-detail capitalize'>{user?.guarantor?.phone}</h2>
           </div>
-          <div className="space-y-1">
-            <p className='user-title'>Email Address</p>
+          <div className="space-y-1 col-span-2 md:col-span-1">
+            <p className='user-title '>Email Address</p>
             <h2 className='user-detail'>{user?.guarantor.email}</h2>
           </div>
           <div className="space-y-1">
