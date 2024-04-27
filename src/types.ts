@@ -12,7 +12,7 @@ export type User = {
   organization: string;
   phone: string;
   picture: string;
-  status: 'pending' | 'approved' | 'rejected';
+  status: 'pending' | 'approved' | 'rejected' | 'active';
   education: {
     education_level: 'High School Diploma' | 'Bachelor Degree' | 'Master Degree' | 'PhD';
     employment_status: 'employed' | 'unemployed' | 'self-employed';
