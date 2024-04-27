@@ -12,6 +12,7 @@ import { Bell, UserRound } from "lucide-react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { SearchInput } from "@/components/ui/input";
+import useLocalStorageEmail from "@/hooks/useAuthData";
 
 interface NavbarProps {
   isSidebarOpen: boolean;
@@ -19,7 +20,8 @@ interface NavbarProps {
 }
 
 const Navbar: FC<NavbarProps> = ({isSidebarOpen, toggleSidebar}) => {
-  
+  const {email} = useLocalStorageEmail()
+
 
   return (
     <div className="h-[100px] flex items-center justify-between px-5 bg-white border-b-[0.5px] border-n400 z-50">
@@ -50,7 +52,7 @@ const Navbar: FC<NavbarProps> = ({isSidebarOpen, toggleSidebar}) => {
                 </Avatar>
                 <div className="flex items-center">
                   {/* name dropdown*/}
-                  <p className="text-[16px] font-medium text-b200">Admin</p>
+                  <p className="text-[16px] font-medium text-b200 truncate">{email}</p>
                   <IoMdArrowDropdown />
                 </div>
               </DropdownMenuTrigger>

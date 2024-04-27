@@ -3,13 +3,13 @@
 import React from 'react'
 
 // ** hook
-import useGlobalState from '@/hooks/global.hook'
-import useLocalStorageEmail from '@/hooks/useLocalStorageEmail'
+import useAuthData from '@/hooks/useAuthData'
 
 const Dashboard = () => {
-  const {email} = useLocalStorageEmail()
+  // const {email} = useAuthData()
   return (
-    <div>Welcome {email}</div>
+    // <div className='text-2xl text-b200 font-medium'>Welcome {email}</div>
+    <></>
   )
 }
 
