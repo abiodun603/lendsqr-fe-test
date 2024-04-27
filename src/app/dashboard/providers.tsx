@@ -1,14 +1,16 @@
 'use client'
 
 import {ReactNode,  useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 // ** UI
-import Sidebar from "@/ui/common/sidebar/Sidebar";
-import Navbar from "@/ui/common/navbar/navbar";
+import Sidebar from "@/layouts/sidebar/Sidebar";
+import Navbar from "@/layouts/navbar/navbar";
 
 
 const Providers = ({children}: { children: ReactNode }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -31,7 +33,7 @@ const Providers = ({children}: { children: ReactNode }) => {
 
   const toggleSidebar = () => {
     setIsSidebarOpen((prevState) => !prevState);
-  };
+  };  
 
   return (
     <div className="flex w-full h-full bg-white">

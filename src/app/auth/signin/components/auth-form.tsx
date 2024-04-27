@@ -1,5 +1,8 @@
 'use client'
 
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+
 // ** Layout
 import AuthLayout from "@/layouts/auth/auth-layout"
 
@@ -12,8 +15,6 @@ import { useAppDispatch } from "@/hooks/useTypedSelector"
 // ** Components
 import Button from "@/components/ui/custom-button"
 import { CustomInputField } from "@/components/ui/inputs/custom-input"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
 
 // ** Store
 import { login } from "@/store/features/auth/authSlice"

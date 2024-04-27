@@ -10,9 +10,19 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 // ** Icons
 import { Bell, UserRound } from "lucide-react";
 import { IoMdArrowDropdown } from "react-icons/io";
+
+// ** Components
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { SearchInput } from "@/components/ui/input";
-import useLocalStorageEmail from "@/hooks/useAuthData";
+
+/// ** Hook
+import { useAuthDataCookie } from "@/hooks/useAuthData";
+import { useAppDispatch } from "@/hooks/useTypedSelector";
+
+// ** Store
+import { logout } from "@/store/features/auth/authSlice";
+import { useRouter } from "next/navigation";
+
 
 interface NavbarProps {
   isSidebarOpen: boolean;
@@ -20,8 +30,15 @@ interface NavbarProps {
 }
 
 const Navbar: FC<NavbarProps> = ({isSidebarOpen, toggleSidebar}) => {
-  const {email} = useLocalStorageEmail()
+  const router = useRouter()
+  const authData = useAuthDataCookie();
 
+  const dispatch = useAppDispatch()
+  
+  const handleLogout = () => {
+    dispatch(logout())
+    router.push("/")
+  }
 
   return (
     <div className="h-[100px] flex items-center justify-between px-5 bg-white border-b-[0.5px] border-n400 z-50">
@@ -52,13 +69,13 @@ const Navbar: FC<NavbarProps> = ({isSidebarOpen, toggleSidebar}) => {
                 </Avatar>
                 <div className="flex items-center">
                   {/* name dropdown*/}
-                  <p className="text-[16px] font-medium text-b200 truncate">{email}</p>
+                  <p className="text-[16px] font-medium text-b200 truncate">{authData?.email}</p>
                   <IoMdArrowDropdown />
                 </div>
               </DropdownMenuTrigger>
 
               <DropdownMenuContent>
-                <DropdownMenuLabel>Logout</DropdownMenuLabel>
+                <DropdownMenuLabel className="cursor-pointer" onClick={handleLogout}>Logout</DropdownMenuLabel>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>

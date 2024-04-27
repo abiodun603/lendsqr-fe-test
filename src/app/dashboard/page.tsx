@@ -3,13 +3,12 @@
 import React from 'react'
 
 // ** hook
-import useAuthData from '@/hooks/useAuthData'
+import  { useAuthDataCookie } from '@/hooks/useAuthData'
 
 const Dashboard = () => {
-  // const {email} = useAuthData()
+  const authdata = useAuthDataCookie()
   return (
-    // <div className='text-2xl text-b200 font-medium'>Welcome {email}</div>
-    <></>
+    <div className='text-2xl text-b200 font-medium'>Welcome {authdata?.email}</div>
   )
 }
 

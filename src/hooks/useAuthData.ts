@@ -1,25 +1,18 @@
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
 
-const useAuthData = () => {
-  const [email, setEmail] = useState<string | null>(null);
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+export function useAuthDataCookie() {
+  const [authData, setAuthData] = useState<{ email: string, isLoggedIn: boolean } | null>(null);
 
   useEffect(() => {
-    const storedData = localStorage.getItem('authData');
-    if (storedData) {
-      try {
-        const { email, isLoggedIn } = JSON.parse(storedData);
-        setEmail(email);
-        setIsLoggedIn(isLoggedIn === true);
-      } catch (error) {
-        console.error('Error parsing authData from localStorage:', error);
-      }
+    const cookieValue = Cookies.get('authData');
+    if (cookieValue) {
+      const parsedCookie = JSON.parse(cookieValue);
+      setAuthData(parsedCookie);
     }
   }, []);
 
-  return { email, isLoggedIn };
-};
-
-export default useAuthData;
+  return authData;
+}
