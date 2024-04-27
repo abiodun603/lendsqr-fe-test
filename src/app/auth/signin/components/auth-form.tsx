@@ -56,7 +56,7 @@ const AuthForm = () => {
             alt="auth banner"
             width={130}
             height={200}
-            className="h-auto mx-auto mb-6"
+            className="block md:hidden h-auto mx-auto mb-6"
           />
         </div>
         {/*  */}
