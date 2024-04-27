@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 
 const MenuLink = ({ item }: any) => {
   const pathname = usePathname();
-  const segments = pathname.split('/'); // Split the pathname into segments
+  const segments = pathname.split('/');
 
   
   const sanitizedPathname = segments.length === 2 ? `/${segments[1]}` :  `/${segments[1]}/${segments[2]}`;

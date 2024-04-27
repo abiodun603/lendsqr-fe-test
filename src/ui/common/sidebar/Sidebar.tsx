@@ -7,7 +7,6 @@ import { Assets } from '@/assets'
 
 // icons
 import { FaAngleLeft } from 'react-icons/fa';
-import { FaPowerOff } from "react-icons/fa6";
 
 import MenuLink from "./menuLink/menuLink";
 
@@ -22,30 +21,6 @@ const menuItems = [
         image: Assets.home,
         imageActive: Assets.home
       },
-      // {
-      //   title: "Employees",
-      //   path: "/dashboard/employees",
-      //   image: Assets.dEmployee,
-      //   imageActive: Assets.dEmployeeActive
-      // },
-      // {
-      //   title: "Transactions",
-      //   path: "/dashboard/transactions",
-      //   image: Assets.dReceipt,
-      //   imageActive: Assets.dReceiptActive
-      // },
-      // {
-      //   title: "Payroll",
-      //   path: "/dashboard/payroll",
-      //   image: Assets.dPayroll,
-      //   imageActive: Assets.dPayrollActive
-      // },
-      // {
-      //   title: "Reports",
-      //   path: "/dashboard/report",
-      //   image: Assets.dChart,
-      //   imageActive: Assets.dChartActive
-      // }
     ],
   },
   {

@@ -117,7 +117,7 @@ const TabsContentOne: FC<TabsContentOneProps> = ({ user }) => {
           </div>
           <div className="space-y-1">
             <p className='user-title'>Phone Number</p>
-            <h2 className='user-detail capitalize'>{user?.guarantor?.phone.replace(/[()-]/g, '')}</h2>
+            <h2 className='user-detail capitalize'>{user?.guarantor?.phone}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>Email Address</p>
