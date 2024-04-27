@@ -237,12 +237,6 @@ export const CustomReactSelectField: React.FC<CustomReactSelectFieldProps> = ({ 
             indicatorSeparator: () => ({
               display: 'none', 
             }),
-            // placeholder: (provided, state) => ({
-            //   ...provided,
-            //   height: "45px",
-            //   margin: "0",
-            //   padding:"0"
-            // }),
             indicatorsContainer:  (provided, state) => ({
               ...provided,
               height: "40px",
