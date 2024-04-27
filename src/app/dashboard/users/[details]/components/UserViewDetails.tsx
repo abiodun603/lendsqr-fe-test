@@ -58,7 +58,7 @@ const UserViewDetails: FC<UserViewDetailsProps> = ({ user_id }) => {
   return (
     <Tabs defaultValue="details" className="w-full">      
       {/* user header action */}
-      <div className='w-full flex items-center justify-between'>
+      <div className='w-full flex flex-col md:flex-row space-y-3 md:space-y-0 md:items-center justify-between'>
         <h3 className='text-b200 text-2xl font-medium'>User Details</h3>
         <div className='flex items-center space-x-3'>
           <Button variant={"outline"} className='text-sm text-r500 font-semibold uppercase border-r500'>blacklist user</Button>

@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 // ** Icons
-import { Bell, UserRound } from "lucide-react";
+import { Bell, UserRound, Menu } from "lucide-react";
 import { IoMdArrowDropdown } from "react-icons/io";
 
 // ** Components
@@ -42,14 +42,15 @@ const Navbar: FC<NavbarProps> = ({isSidebarOpen, toggleSidebar}) => {
 
   return (
     <div className="h-[100px] flex items-center justify-between px-5 bg-white border-b-[0.5px] border-n400 z-50">
-      <div className="w-[25rem]">
+      <div className="md:w-[25rem] flex items-center justify-start space-x-2">
+        <Menu className="text-black md:hidden -mt-1" size={30} />
         <div className="flex items-center md:gap-[20px] md:w-[17.68rem]" >
-          <Image
+          <Image 
             src="/logo.svg"
             alt=""
             width="100"
             height="10"
-            className="w-32 md:w-auto h-auto"
+            className="w-40 md:w-auto h-auto"
           />
         </div>
       </div>

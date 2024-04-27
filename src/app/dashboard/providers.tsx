@@ -44,7 +44,7 @@ const Providers = ({children}: { children: ReactNode }) => {
         <Navbar isSidebarOpen = {isSidebarOpen} toggleSidebar={toggleSidebar}/>
       </div>
       <div className={`w-full  ${isSidebarOpen ? "lg:pl-[17.68rem]" : "lg:p-0"} `}>
-        <div className="w-full bg-[#FBFBFB] min-h-screen pt-32 pb-16 px-20">
+        <div className="w-full bg-[#FBFBFB] min-h-screen pt-32 pb-16 px-4 md:px-20">
           {children}
         </div>
       </div>
