@@ -19,7 +19,6 @@ const UserDetails = ({ params }: { params: { details: string } }) => {
           <p className='text-n500 text-[16px] font-normal'>Back to Users</p>
         </div>
       </Link>
-      <p>{userId}</p>
       {/* user details */}
       <div className='mt-10'>
         <UserViewDetails user_id={userId} />

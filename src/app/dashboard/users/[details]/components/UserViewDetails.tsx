@@ -8,13 +8,21 @@ import { useGetUsersQuery } from "@/store/features/users/UsersService"
 // ** Third Party
 import { Rating as ReactRating } from '@smastrom/react-rating'
 
+// ** Icon
+import { UserRound  } from 'lucide-react';
+
 // ** Components
 import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import TabsContentOne from './TabsContentOne'
+
+// ** Types
 import { User } from '@/types'
+
+// ** Helpers
+import { formatNumber } from '@/helpers/formatValueComma'
 
 
 
@@ -37,6 +45,7 @@ const UserViewDetails: FC<UserViewDetailsProps> = ({ user_id }) => {
       const filteredUser = getAllUsers.find(user => user.id === user_id);
       if (filteredUser) {
         setUser(filteredUser);
+        setRating(filteredUser?.rating)
       } else {
         console.log(`User with ID ${user_id} not found.`);
       }
@@ -66,14 +75,14 @@ const UserViewDetails: FC<UserViewDetailsProps> = ({ user_id }) => {
               <div className='flex items-center space-x-3'>
                 <div>
                   <Avatar className="w-[100px] h-[100px]">
-                    <AvatarImage src="https://github.com/shadcn.png"  />
-                    <AvatarFallback>CN</AvatarFallback>
+                    <AvatarImage src={"/profile.png"}  />
+                    <AvatarFallback><UserRound className=' text-n500'size={28}/></AvatarFallback>
                   </Avatar>
                 </div>
                 {/* name */}
                 <div className='space-y-1 flex flex-col'>
-                  <h2 className='text-[22px] text-n500 font-medium'>Grace Effiom</h2>
-                  <p className='text-sm text-n500 font-normal'>LSQFf587g90</p>
+                  <h2 className='text-[22px] text-n500 font-medium'>{`${user?.firstname} ${user?.lastname}`}</h2>
+                  <p className='text-sm text-n500 font-normal'>{user?.id}</p>
                 </div>
               </div>
               <Separator orientation="vertical" className='bg-n500 h-[80px]' />
@@ -83,8 +92,8 @@ const UserViewDetails: FC<UserViewDetailsProps> = ({ user_id }) => {
               </div>
               <Separator orientation="vertical" className='bg-n500 h-[80px]'/>
               <div className='space-y-1'>
-                <p className='text-[22px] text-b200 font-medium space-y-1'>₦200,000.00</p>
-                <p className='text-xs text-b200 font-normal'>9912345678/Providus Bank</p>
+                <p className='text-[22px] text-b200 font-medium space-y-1'>₦{user?.education && formatNumber(user?.education?.salary_from, 2)}</p>
+                <p className='text-xs text-b200 font-normal'>{`${user?.bank?.account_number}/${user?.bank?.bank_name}`}</p>
               </div>
             </div>
           </div>

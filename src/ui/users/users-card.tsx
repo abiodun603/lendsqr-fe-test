@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Image from 'next/image'
 
 // ** Helpers
-import { formatValue } from '@/helpers/formatValueComma'
+import { formatNumber } from '@/helpers/formatValueComma'
 
 interface UsersCardInterface {
     image: string,
@@ -25,7 +25,7 @@ const UsersCard: FC<UsersCardInterface> = ({image, name, count}) => {
       {/* name */}
       <h2 className='text-sm text-n500 font-medium uppercase'>{name}</h2>
       {/* price */}
-      <p className='text-b200 text-2xl font-semibold'>{formatValue(count)}</p>
+      <p className='text-b200 text-2xl font-semibold'>{formatNumber(count)}</p>
     </div>
   )
 }

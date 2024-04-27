@@ -4,6 +4,7 @@ import { FC } from 'react'
 
 // ** Types
 import { User } from '@/types'
+import { formatNumber } from '@/helpers/formatValueComma'
 
 interface TabsContentOneProps {
   user: User | undefined
@@ -18,7 +19,7 @@ const TabsContentOne: FC<TabsContentOneProps> = ({ user }) => {
         <div className="w-full grid grid-cols-5 gap-x-4 gap-y-6 mt-6">
           <div className="space-y-1">
             <p className='user-title'>full name</p>
-            <h2 className='user-detail capitalize'>{user?.firstname} {user?.lastname}</h2>
+            <h2 className='user-detail capitalize'>{`${user?.firstname} ${user?.lastname}`}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>Phone Number</p>
@@ -70,7 +71,7 @@ const TabsContentOne: FC<TabsContentOneProps> = ({ user }) => {
           </div>
           <div className="space-y-1">
             <p className='user-title'>Duration of employment</p>
-            <h2 className='user-detail capitalize'>{user?.education?.employment_status}</h2>
+            <h2 className='user-detail capitalize'>{`${user?.education?.duration_of_employment} years`}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>office email</p>
@@ -78,11 +79,11 @@ const TabsContentOne: FC<TabsContentOneProps> = ({ user }) => {
           </div>
           <div className="space-y-1">
             <p className='user-title'>Monthly income</p>
-            <h2 className='user-detail capitalize'>{user?.education?.salary}</h2>
+            <h2 className='user-detail capitalize'>{user?.education && `₦${formatNumber(user?.education.salary_from, 2)} - ₦${formatNumber(user?.education.salary_to, 2)}`}</h2>
           </div>
           <div className="space-y-1">
             <p className='user-title'>loan repayment</p>
-            <h2 className='user-detail capitalize'>{user?.education?.loan}</h2>
+            <h2 className='user-detail capitalize'>₦{user?.education && formatNumber(user.education.loan)}</h2>
           </div>
         </div>
       </div>
