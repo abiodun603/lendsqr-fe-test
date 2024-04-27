@@ -6,13 +6,22 @@ import AuthLayout from "@/layouts/auth/auth-layout"
 // ** Third Party
 import { FormProvider, useForm } from "react-hook-form"
 
+// ** Hooks
+import { useAppDispatch } from "@/hooks/useTypedSelector"
+
 // ** Components
 import Button from "@/components/ui/custom-button"
 import { CustomInputField } from "@/components/ui/inputs/custom-input"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 
+// ** Store
+import { login } from "@/store/features/auth/authSlice"
 
+interface FieldValues {
+  email: string
+  password: string
+}
 const defaultValues = {
   email: '',
   password: ''
@@ -22,9 +31,18 @@ const AuthForm = () => {
   const methods = useForm({defaultValues});
   
   const router = useRouter()
+  const dispatch = useAppDispatch()
 
-  const onSubmit = () => {
-    router.push("/dashboard")
+  const onSubmit = (data: FieldValues) => {
+    const form_data = {
+      email: data?.email
+    }
+    try {
+      dispatch(login(form_data))
+      router.push("/dashboard")
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
