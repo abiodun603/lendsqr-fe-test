@@ -89,7 +89,7 @@ const UserViewDetails: FC<UserViewDetailsProps> = ({ user_id }) => {
                 <p className='text-sm text-n500 font-medium'>User’s Tier</p>
                 <ReactRating style={{ maxWidth: 100 }} value={rating} onChange={setRating} />
               </div>
-              <Separator orientation="vertical" className='bg-n500/ h-[80px] hidden md:block' />
+              <Separator orientation="vertical" className='bg-n500 h-[80px] hidden md:block' />
               <Separator className='bg-n500/10 my-6 h-[1px] md:hidden'/>
               <div className='space-y-1'>
                 <p className='text-[22px] text-b200 font-medium space-y-1'>₦{user?.education && formatNumber(user?.education?.salary_from, 2)}</p>
@@ -100,7 +100,7 @@ const UserViewDetails: FC<UserViewDetailsProps> = ({ user_id }) => {
           
           {/*tab header */}
           <div className='absolute  bottom-0'>
-            <TabsList className="grid w-full grid-cols-6 overflow-auto">
+            <TabsList className="grid w-full grid-cols-3 md:grid-cols-6 flex-nowrap overflow-x-scroll md:overflow-hidden">
               <TabsTrigger value="details">General Details</TabsTrigger>
               <TabsTrigger value="documents">Documents</TabsTrigger>
               <TabsTrigger value="bank">Bank Details</TabsTrigger>
