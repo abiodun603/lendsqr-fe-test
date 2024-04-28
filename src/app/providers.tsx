@@ -1,7 +1,7 @@
 'use client'
 
 import {ReactNode, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 // ** Hooks
 import { useAuthDataCookie } from "@/hooks/useAuthData";
@@ -15,13 +15,13 @@ const Providers = ({children}: { children: ReactNode }) => {
   const authData = useAuthDataCookie()
 
   const router = useRouter()
-
+  const pathname = usePathname()
   useEffect(() => {
-    if(authData?.isLoggedIn){
+    if(authData?.isLoggedIn && pathname == "/"){
       router.push("/dashboard")
     }
 
-  }, [authData?.isLoggedIn])
+  }, [authData?.isLoggedIn, pathname])
   return (
     <Provider store={store}>
       {children}

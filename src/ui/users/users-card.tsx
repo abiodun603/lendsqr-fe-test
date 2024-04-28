@@ -18,7 +18,7 @@ interface UsersCardInterface {
 const UsersCard: FC<UsersCardInterface> = ({image, name, count}) => {
   const formatCount = parseInt(formatNumber(count), 10)
   return (
-    <div className='w-full h-40 bg-white rounded-[4px] space-y-3 border-l border-[#213f7d0f] drop-shadow-sm py-4 pl-6'>
+    <div className='w-full h-40 bg-white rounded-[4px] space-y-3 border-l border-[#213f7d0f] drop-shadow-sm py-4 pl-6 hover:shadow-primary/20 hover:shadow-lg'>
       {/* icon */}
       <div className="relative w-10 h-10 rounded-full">
         <Image
