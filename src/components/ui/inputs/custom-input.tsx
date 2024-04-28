@@ -10,7 +10,7 @@ import Select, { ActionMeta, SingleValue } from 'react-select';
 import { ChevronDown } from 'lucide-react';
 
 // ** Styles
-import './style.css';
+import './style.scss';
 
 type ICustomInputProps = {
   name: string;

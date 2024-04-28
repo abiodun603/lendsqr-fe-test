@@ -36,9 +36,6 @@ const UserViewDetails: FC<UserViewDetailsProps> = ({ user_id }) => {
 
   const {data:getAllUsers, isLoading} = useGetUsersQuery()
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
   useEffect(() => {
     if (getAllUsers) {
@@ -53,7 +50,10 @@ const UserViewDetails: FC<UserViewDetailsProps> = ({ user_id }) => {
   }, [getAllUsers, user_id]);
 
 
-  console.log(user, user_id)
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Tabs defaultValue="details" className="w-full">      
