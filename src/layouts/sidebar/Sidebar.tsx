@@ -5,12 +5,25 @@ import Image from "next/image";
 // ** Images
 import { Assets } from '@/assets'
 
+// ** Icons
+import { ChevronDown } from 'lucide-react';
+
 // ./
 import MenuLink from "./menuLink/menuLink";
 
 // ** Utils
 import { cn } from "@/lib/utils";
 import { Dispatch, SetStateAction } from "react";
+
+// ** Components
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 
 
@@ -56,7 +69,29 @@ const Sidebar =  ({ setIsSidebarOpen }: SidebarProps) => {
           className=""
         />
       </div>
-      <ul className={`list-none`}>
+      <ul className={`list-none mt-24`}>
+        <li className="flex items-center pl-5 space-x-3">
+          <Image 
+            src={Assets.dBrief}
+            alt="brief icon"
+            className="w-auto h-auto"
+          />
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <div className="flex items-center space-x-1">
+                <span className="text-[16px] font-medium text-n500 capitalize">Switch organization</span>
+                <ChevronDown className="text-200" size={15}/>
+              </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>Google</DropdownMenuItem>
+              <DropdownMenuItem>Microsoft</DropdownMenuItem>
+              <DropdownMenuItem>Teams</DropdownMenuItem>
+              <DropdownMenuItem>Uber</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+         
+        </li>
         {menuItems.map((cat) => (
           <li key={cat.title}>
             <span className="text-xs font-medium text-n500 pl-6 uppercase">{cat.title}</span>

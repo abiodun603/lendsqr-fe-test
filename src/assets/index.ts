@@ -52,7 +52,7 @@ import dSettingActive from "./icon/dashboard-setting-active.svg"
 // ** lendsqr sidebar icons
 import home from "./sidebar/dashboard.svg"
 import dUsers from "./sidebar/users.svg"
-
+import dBrief from "./sidebar/briefcase.svg"
 // ** lendsqr users dashboard
 import uUsers from "./users/u-users.svg"
 import uLoans from "./users/u-loans.svg"
@@ -68,7 +68,7 @@ export const Assets = {
   uLoans,
   uSavings,
   uActive,
-
+  dBrief,
   
   cardWalletBg,
   logo1,
