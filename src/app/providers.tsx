@@ -16,12 +16,13 @@ const Providers = ({children}: { children: ReactNode }) => {
 
   const router = useRouter()
   const pathname = usePathname()
+  
   useEffect(() => {
     if(authData?.isLoggedIn && pathname == "/"){
       router.push("/dashboard")
     }
 
-  }, [authData?.isLoggedIn, pathname])
+  }, [authData?.isLoggedIn, pathname, router])
   return (
     <Provider store={store}>
       {children}

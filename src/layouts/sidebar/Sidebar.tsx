@@ -1,6 +1,7 @@
 'use client'
 
 import Image from "next/image";
+import { Dispatch, SetStateAction } from "react";
 
 // ** Images
 import { Assets } from '@/assets'
@@ -13,15 +14,12 @@ import MenuLink from "./menuLink/menuLink";
 
 // ** Utils
 import { cn } from "@/lib/utils";
-import { Dispatch, SetStateAction } from "react";
 
 // ** Components
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 

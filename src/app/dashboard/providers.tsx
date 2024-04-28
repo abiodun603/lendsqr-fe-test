@@ -2,7 +2,7 @@
 
 import {ReactNode, useState } from "react";
 
-// ** UI
+// ** Layouts
 import Sidebar from "@/layouts/sidebar/Sidebar";
 import Navbar from "@/layouts/navbar/navbar";
 

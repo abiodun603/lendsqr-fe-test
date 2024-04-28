@@ -2,7 +2,7 @@ import { createApi } from '@reduxjs/toolkit/query/react'
 import { baseQuery } from '@/config/auth-config'
 
 // ** Types
-import { User, Users } from '@/types'
+import { User } from './type'
 
 
 export const usersApi = createApi({
