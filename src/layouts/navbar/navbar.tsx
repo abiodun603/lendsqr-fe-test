@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { Dispatch, FC, SetStateAction } from "react";
 import Image from 'next/image'
 import Link from "next/link";
 
@@ -26,10 +26,10 @@ import { useRouter } from "next/navigation";
 
 interface NavbarProps {
   isSidebarOpen: boolean;
-  toggleSidebar: () => void;
+  setIsSidebarOpen: Dispatch<SetStateAction<boolean>>
 }
 
-const Navbar: FC<NavbarProps> = ({isSidebarOpen, toggleSidebar}) => {
+const Navbar: FC<NavbarProps> = ({isSidebarOpen, setIsSidebarOpen}) => {
   const router = useRouter()
   const authData = useAuthDataCookie();
 
@@ -40,10 +40,14 @@ const Navbar: FC<NavbarProps> = ({isSidebarOpen, toggleSidebar}) => {
     router.push("/")
   }
 
+  const handleSidebarToggle = () => {
+    setIsSidebarOpen(!isSidebarOpen)
+  }
+
   return (
     <div className="h-[100px] flex items-center justify-between px-5 bg-white border-b-[0.5px] border-n400 z-50">
       <div className="md:w-[25rem] flex items-center justify-start space-x-2">
-        <Menu className="text-black md:hidden -mt-1" size={30} />
+        <Menu className="text-black md:hidden -mt-1" size={30} onClick={handleSidebarToggle} />
         <div className="flex items-center md:gap-[20px] md:w-[17.68rem]" >
           <Image 
             src="/logo.svg"
