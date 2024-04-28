@@ -25,7 +25,7 @@ const Providers = ({children}: { children: ReactNode }) => {
         <Navbar isSidebarOpen = {isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}/>
       </div>
       <div className={cn(`w-full`,{
-        'pl-[17.68rem]' : isSidebarOpen,
+        'lg:pl-[17.68rem]' : isSidebarOpen,
         " lg:pl-[17.68rem] p-0" : !isSidebarOpen
       } )}>
         <div className="w-full bg-[#FBFBFB] min-h-screen pt-32 pb-16 px-4 md:px-20">
