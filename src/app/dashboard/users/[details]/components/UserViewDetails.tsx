@@ -68,9 +68,9 @@ const UserViewDetails: FC<UserViewDetailsProps> = ({ user_id }) => {
 
       {/* user details tab panel */}
       <div className='mt-10 w-full'>
-        <div className='relative w-full h-[210px] border border-[#213f7d0f] drop-shadow-sm rounded-[4px] bg-white p-6'>
-          {/* <div className='p-6'>
-            <div className="flex h-7 items-center space-x-4 text-sm">
+        <div className='relative w-full h-[500px] md:h-[210px] border border-[#213f7d0f] drop-shadow-sm rounded-[4px] bg-white p-6'>
+          <div className='p-6'>
+            <div className="flex flex-col md:flex-row h-7 items-center space-x-4 text-sm">
               <div className='flex items-center space-x-3'>
                 <div>
                   <Avatar className="w-[100px] h-[100px]">
@@ -83,18 +83,20 @@ const UserViewDetails: FC<UserViewDetailsProps> = ({ user_id }) => {
                   <p className='text-sm text-n500 font-normal'>{user?.id}</p>
                 </div>
               </div>
-              <Separator orientation="vertical" className='bg-n500 h-[80px]' />
+              <Separator orientation="vertical" className='bg-n500 h-[80px] hidden md:block' />
+              <Separator className='bg-n500/10 h-[1px] my-6 md:hidden'/>
               <div>
                 <p className='text-sm text-n500 font-medium'>User’s Tier</p>
                 <ReactRating style={{ maxWidth: 100 }} value={rating} onChange={setRating} />
               </div>
-              <Separator orientation="vertical" className='bg-n500 h-[80px]'/>
+              <Separator orientation="vertical" className='bg-n500/ h-[80px] hidden md:block' />
+              <Separator className='bg-n500/10 my-6 h-[1px] md:hidden'/>
               <div className='space-y-1'>
                 <p className='text-[22px] text-b200 font-medium space-y-1'>₦{user?.education && formatNumber(user?.education?.salary_from, 2)}</p>
                 <p className='text-xs text-b200 font-normal'>{`${user?.bank?.account_number}/${user?.bank?.bank_name}`}</p>
               </div>
             </div>
-          </div> */}
+          </div>
           
           {/*tab header */}
           <div className='absolute  bottom-0'>

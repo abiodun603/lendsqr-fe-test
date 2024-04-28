@@ -74,6 +74,8 @@ const Sidebar =  ({ setIsSidebarOpen }: SidebarProps) => {
           <Image 
             src={Assets.dBrief}
             alt="brief icon"
+            width={38}
+            height={38}
             className="w-auto h-auto"
           />
           <DropdownMenu>

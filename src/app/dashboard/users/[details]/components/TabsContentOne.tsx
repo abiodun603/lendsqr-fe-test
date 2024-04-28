@@ -16,7 +16,7 @@ const TabsContentOne: FC<TabsContentOneProps> = ({ user }) => {
       {/*  */}
       <div className=''>
         <h2 className='text-[16px] text-b200 font-medium'>Personal Information</h2>
-        <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-col-5 gap-x-4 gap-y-6 mt-6">
+        <div className="w-full grid grid-cols-2 md:grid-cols-5 lg:grid-col-5 gap-x-4 gap-y-6 mt-6">
           <div className="space-y-1">
             <p className='user-title'>full name</p>
             <h2 className='user-detail capitalize'>{`${user?.firstname} ${user?.lastname}`}</h2>
